@@ -44,16 +44,19 @@ This repo includes this template that can be added to a procdure to show its pro
 
 ## Blog Post Revised Parameters
 
-`%Parameters` - single, dependent from %Procedure
-The full list of a procedure’s formal parameters separated by commas and enclosed in parentheses unless empty
+`%Prototype` - single, dependent from %Procedure.
+ The procedure's prototype for the MAP structure.
+ 
+`%Parameters` - single, dependent from %Procedure.
+The full list of a procedureâ€™s formal parameters separated by commas and enclosed in parentheses unless empty
 
-`%ProcedureParameters` - multi, dependent from %Procedure
-The list of names of all procedure parameters. Multi-valued symbol to `#FOR(%ProcedureParameters)`
+`%ProcedureParameters` - multi, dependent from %Procedure.
+The list of names of all procedure parameters. Multi-valued symbol to use with `#FOR(%ProcedureParameters)`. *This was missing in the blog post and is important because all the other symbols are dependent on this one.*
 
 #### Symbols: single, dependent from %ProcedureParameters
 
 `%ProcedureParameterName` -
-The list of names of all formal parameters as entered in %Parameters symbols; if missing then the name of that parameter as in %Prototype symbol is returned; if that is missing too, an AppGen generated name is returned
+The list of names of all formal parameters as entered in %Parameters symbols; if missing then the name of that parameter as in %Prototype symbol is returned; if that is missing too, an AppGen generated name is returned. *This was wrongly noted as Multi in the blog post, it is Single.*
 
 `%ProcedureParameterOrigName` -
 The name of the parameter as entered in the %Prototype symbol
@@ -68,13 +71,13 @@ The default value of parameters as entered in the %Prototype symbol
 Returns %True if the parameter is declared as <omittable> in the %Prototype symbol
 
 `%ProcedureParameterByReference` - 
-Returns %True if the parameter’s type is declared with leading * in the %Prototype symbol. For types only passed by address (like QUEUE) this will not be true unless prototyped as *QUEUE.
+Returns %True if the parameterâ€™s type is declared with leading * in the %Prototype symbol. For types only passed by address (like QUEUE) this will not be true unless prototyped as *QUEUE.
 
 `%ProcedureParameterConstant` - 
-Returns %True if the parameter’s type is declared with the CONST keyword in the %Prototype symbol
+Returns %True if the parameterâ€™s type is declared with the CONST keyword in the %Prototype symbol
 
 `%ProcedureParameterDIMs` - 
-Returns the number of dimensions if the parameter’s type is declared as an array in the %Prototype symbol (1 for [] , 2 for [,] , etc.). Returns 0 if not [].
+Returns the number of dimensions if the parameterâ€™s type is declared as an array in the %Prototype symbol (1 for [] , 2 for [,] , etc.). Returns 0 if not [].
 
 
 https://clarionsharp.com/blog/changes-to-template-built-in-symbols-in-c9/
